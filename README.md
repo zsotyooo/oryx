@@ -8,6 +8,8 @@ Frontend helper for Spryker projects
 4. [Usage](#usage)
 5. [API](#api)
 
+**If you're looking for sable ZED soltion, [click here (sable-for-zed)](https://github.com/spryker/sable-for-zed).**
+
 ---
 
 ## Introduction
