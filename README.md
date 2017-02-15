@@ -188,10 +188,12 @@ sable.build(configuration, (error, stats) => {
 - `log.debug()`: print debug message
 
 To print debug messages, set `process.env.DEBUG` variable to `true`. 
-This is a script example:
+Assuming you have a `build` script in your `package.json`, you can type in terminal:
 
 ```bash
 DEBUG=true npm run build
+# or
+DEBUG=true yarn run build
 ```
 
 
