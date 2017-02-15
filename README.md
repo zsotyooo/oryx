@@ -117,17 +117,7 @@ yarn run build
 
 - [find()](#find)
 - [build()](#build)
-
-Advanced use:
-
-- [log](#log)
-    - log.head()
-    - log.task()
-    - log.step()
-    - log.stepWithTimestamp()
-    - log.done()
-    - log.error()
-    - log.debug()
+- [log functions](#log-functions)
 
 ### find()
 
@@ -187,9 +177,9 @@ sable.build(configuration, (error, stats) => {
 });
 ```
 
-### log
+### log functions
 
-- `log.head()`: print sable module name and version
+- `log.info()`: print sable module name and version
 - `log.task()`: print a task message
 - `log.step()`: print a step message
 - `log.stepWithTimestamp()`: print a step message with timestamp
