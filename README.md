@@ -61,17 +61,17 @@ or add them directly as you always did with webpack (like shown in the example).
 ```js
 const sable = require('sable');
 
-const sableFindSettings = {
+const entrySettings = {
     roots: [path.resolve('vendor/spryker')],
     patterns: ['**/Yves/**/*.entry.js'],
     description: 'looking for entry points...',
 
-    key: p => path.basename(p, '.entry.js')
+    defineName: p => path.basename(p, '.entry.js')
 }
 
 const webpackConfiguration = {
     // ...
-    entry: sable.find(sableFindSettings, {
+    entry: sable.find(entrySettings, {
         // your project entry points go here
         'app': './path/to/app',
         'commons': './path/to/commons'
@@ -153,16 +153,16 @@ If `initial` is an object (or `undefined`, `null`) the `find` will return an ext
 If `initial` is an array, the `find` function will return an extended array of matching absolute paths.
 
 
-#### Yves default configuration example
+#### Yves entry default configuration example
 
 ```js
-const sableFindSettings = {
+const entrySettings = {
     roots: [path.resolve('vendor/spryker')],
     patterns: ['**/Yves/**/*.entry.js'],
     glob: {},
     description: 'looking for entry points...',
 
-    key: p => path.basename(p, '.entry.js')
+    defineName: p => path.basename(p, '.entry.js')
 }
 ```
 
