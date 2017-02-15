@@ -16,7 +16,7 @@ Frontend helper for Spryker projects
 
 Sable is a frontend helper for Spryker projects. 
 Its aim is to simplify the assets building process (by replacing Antelope tool, too), 
-giving the developer the freedom to choose and configure the preprocessor for frontend.
+giving a developer the freedom to choose and configure the preprocessor for frontend.
 
 Sable relies on `webpack` 2.
 
@@ -47,15 +47,15 @@ Once installed, sable can be used:
 - to enrich your webpack configuration
 - to programmatically execute webpack (with a nicer terminal output)
 
-The following example shows a basic sable integration with `webpack`:
+The following example shows a basic sable integration with `webpack`.
 
 #### webpack.config.js
-Use sable to find Spryker Yves core entry points and add them to your public folder.
-The following `sableFindSettings` constant defines where to search for them (roots),
-what pattern to adopt to find them (patterns), a description to log in the terminal
-(description) and how to name the entry points (key()).
+Use sable to find Spryker Yves core entry points and add them to your configuration.
+The following `entrySettings` constant defines where to search for them (`dirs`),
+which patterns to adopt to spot them (`patterns`), the description to log in the terminal
+(`description`) and how to name the entry points (`defineName(path)`).
 
-You can now decide to ask sable to look for your entry points (by changing the settings)
+You can now decide to ask sable to look for your own entry points (by changing the settings)
 or add them directly as you always did with webpack (like shown in the example).
 
 ```js
@@ -83,9 +83,8 @@ module.exports = webpackConfiguration;
 ```
 
 #### build.js
-This file is called by `package.json` scripts and contains the programmatic call to
-`webpack` using `sable.build()` function. Sable will take care of printing a minimal
-log in terminal console.
+This file contains the programmatic call to`webpack` using `sable.build()` function. 
+Sable will take care of printing a minimal log in the terminal console.
 
 ```js
 const sable = require('sable');
@@ -95,7 +94,7 @@ sable.build(configuration);
 ```
 
 #### package.json
-Add a script into your `package.json`. 
+Add a script into your `package.json` pointing to `build.js`. 
 
 ```json
 {
@@ -105,7 +104,7 @@ Add a script into your `package.json`.
 }
 ```
 
-You can run it now directly from the terminal console.
+You can now run your script directly from the terminal console.
 
 ```bash
 npm run build
@@ -125,7 +124,7 @@ yarn run build
 sable.find(settings, [initial])
 ```
 
-Perform a glob search into provided root paths, using provided patterns.
+Perform a glob search into provided directories, using provided patterns.
 Return all the matching paths as an object {name-path} or as an array (path array). 
 
 - `settings {object}`:
@@ -137,12 +136,14 @@ Return all the matching paths as an object {name-path} or as an array (path arra
     - `defineName(path) {function} [optional]`: define the name in returned {name-path} object
 - `initial {object|array}`: initial value 
 
-If `initial` is an object (or `undefined`, `null`) the `find` will return an extended object with:
+If `initial` is an object (or `undefined`, `null`) the `find` will return 
+an extended {name-path} object:
 
-- name: filename (or `defineName()` returned value)
+- name: filename (or `defineName(path)` returned value)
 - path: matching absolute path
 
 If `initial` is an array, the `find` function will return an extended array of matching absolute paths.
+In this case, `defineName(path)` function won't be called.
 
 
 #### Yves entry default configuration example
