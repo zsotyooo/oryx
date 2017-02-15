@@ -8,17 +8,17 @@ Frontend helper for Spryker projects
 4. [Usage](#usage)
 5. [API](#api)
 
-**If you're looking for sable ZED soltion, [click here (sable-for-zed)](https://github.com/spryker/sable-for-zed).**
+**If you're looking for sable ZED dedicated soltion, [click here (sable-for-zed)](https://github.com/spryker/sable-for-zed).**
 
 ---
 
 ## Introduction
 
-sable is a frontend helper for Spryker projects. 
-Its aim is to replace antelope tool and simplify the assets building process.
-It relies on `webpack` as building tool.
+Sable is a frontend helper for Spryker projects. 
+Its aim is to simplify the assets building process (by replacing Antelope tool, too), 
+giving the developer the freedom to choose and configure the preprocessor for frontend.
 
-
+Sable relies on `webpack` 2.
 
 ## Requirements
 
@@ -29,39 +29,52 @@ It comes with a peer dependency:
 
 - `webpack` version 2.x (needed when you build assets using sable api)
 
-
-
 ## Setup
 
-Open the terminal, go to your project root folder and type:
+You need to add sable to your `package.json`; 
+open the terminal, go to your project root folder and type:
 
 ```bash
-$ npm install sable --save-dev
-$ # or 
-$ yarn add sable --dev
+npm install sable --save-dev
+# or 
+yarn add sable --dev
 ```
-
 
 ## Usage
 
-Once installed locally, sable can be used:
+Once installed, sable can be used:
 
-- to enrich your webpack configuration (i.e. entry points)
-- to run webpack (but with a nicer terminal output)
+- to enrich your webpack configuration
+- to programmatically execute webpack (with a nicer terminal output)
+
+The following example shows a basic sable integration with `webpack`:
 
 #### webpack.config.js
+Use sable to find Spryker Yves core entry points and add them to your public folder.
+The following `sableFindSettings` constant defines where to search for them (roots),
+what pattern to adopt to find them (patterns), a description to log in the terminal
+(description) and how to name the entry points (toObject).
+
+You can now decide to ask sable to look for your entry points (by changing the settings)
+or add them directly as you always did with webpack (like shown in the example).
 
 ```js
 const sable = require('sable');
 
 const sableFindSettings = {
-    // look at API section
+    roots: [path.resolve('vendor/spryker')],
+    patterns: ['**/Yves/**/*.entry.js'],
+    description: 'looking for entry points...',
+
+    toObject: p => path.basename(p, '.entry.js')
 }
 
 const webpackConfiguration = {
     // ...
     entry: sable.find(sableFindSettings, {
-        // your project entry points
+        // your project entry points go here
+        'app': './path/to/app',
+        'commons': './path/to/commons'
     }),
     // ...
 }
@@ -70,6 +83,9 @@ module.exports = webpackConfiguration;
 ```
 
 #### build.js
+This file is called by `package.json` scripts and contains the programmatic call to
+`webpack` using `sable.build()` function. Sable will take care of printing a minimal
+log in terminal console.
 
 ```js
 const sable = require('sable');
@@ -79,6 +95,7 @@ sable.build(configuration);
 ```
 
 #### package.json
+Add a script into your `package.json`. 
 
 ```json
 {
@@ -88,26 +105,50 @@ sable.build(configuration);
 }
 ```
 
+You can run it now directly from the terminal console.
+
+```bash
+npm run build
+# or 
+yarn run build
+```
 
 ## API
 
-#### sable.find(setting, [initial])
+- find()
+- build()
 
-Perform a search on a glob pattern and return the result paths as an object or as an array. 
-It's mainly used to collect the Spryker Yves entry ponts provided by core bundles.
+Advanced use:
 
-- `settings` {object}:
-    - `roots` {array[string]}: absolute paths used to search into
-    - `patterns` {array[string]}: glob pattern to apply for the search
-    - `glob` {object} [optional]: glob configuration
-    - `description` {string} [optional]: log description
-    - `toObject(absolutePath)` {function} [optional]: return the object key
-- `initial` {object|array}: initial value
+- log.head()
+- log.task()
+- log.step()
+- log.stepWithTimestamp()
+- log.done()
+- log.error()
 
-If `initial` is an object (or `null` - default), 
-the `find` function will return an object with:
+#### find()
 
-- key: filename (or `toObject` return value)
+```
+sable.find(settings, [initial])
+```
+
+Perform a glob search into provided root paths, using provided patterns.
+Return all the matching paths as an object {key-value} or as an array (path array). 
+
+- `settings {object}`:
+    - `roots {array[string]}`: directories in which to search 
+    - `patterns {array[string]}`: glob pattern to apply for the search
+    - `glob {object} [optional]`: glob system configuration 
+    (for the available options, [click here](https://github.com/isaacs/node-glob#options))
+    - `description {string} [optional]`: text to log in terminal
+    - `toObject(absolutePath) {function} [optional]`: define the key in returned {key-value} object
+    (the value will be the found absolute path)
+- `initial {object|array}`: initial value 
+
+If `initial` is an object (or `undefined`, `null`) the `find` will return an object with:
+
+- key: filename (or `toObject()` returned value)
 - value: absolute path
 
 If `initial` is an array, the `find` function will return an array.
@@ -126,18 +167,22 @@ const sableFindSettings = {
 }
 ```
 
-#### sable.build(configuration, [callback])
+#### build()
+
+```
+sable.build(configuration, [callback])
+```
 
 Build the assets using `webpack` and print a nice terminal output.
 This functon is just a wrapper around `webpack(configuration, callback)`:
 feel free to use the webpack one if you want more control over the process.
 
-- `configuration` {object}: webpack configuration file
-- `callback(error, stats)` {function} [optional]: function called once webpack build task is completed
+- `configuration {object}`: webpack configuration file
+- `callback(error, stats) {function} [optional]`: function called once webpack build task is completed
 
 ```js
 sable.build(configuration, (error, stats) => {
-    // do your stuff here
+    // add youre code here
 });
 ```
 
