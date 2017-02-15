@@ -53,7 +53,7 @@ The following example shows a basic sable integration with `webpack`:
 Use sable to find Spryker Yves core entry points and add them to your public folder.
 The following `sableFindSettings` constant defines where to search for them (roots),
 what pattern to adopt to find them (patterns), a description to log in the terminal
-(description) and how to name the entry points (toObject).
+(description) and how to name the entry points (key()).
 
 You can now decide to ask sable to look for your entry points (by changing the settings)
 or add them directly as you always did with webpack (like shown in the example).
@@ -66,7 +66,7 @@ const sableFindSettings = {
     patterns: ['**/Yves/**/*.entry.js'],
     description: 'looking for entry points...',
 
-    toObject: p => path.basename(p, '.entry.js')
+    key: p => path.basename(p, '.entry.js')
 }
 
 const webpackConfiguration = {
@@ -115,8 +115,8 @@ yarn run build
 
 ## API
 
-- find()
-- build()
+- [find()](#find)
+- [build()](#build)
 
 Advanced use:
 
@@ -127,34 +127,33 @@ Advanced use:
 - log.done()
 - log.error()
 
-#### find()
+### find()
 
 ```
 sable.find(settings, [initial])
 ```
 
 Perform a glob search into provided root paths, using provided patterns.
-Return all the matching paths as an object {key-value} or as an array (path array). 
+Return all the matching paths as an object {name-path} or as an array (path array). 
 
 - `settings {object}`:
-    - `roots {array[string]}`: directories in which to search 
-    - `patterns {array[string]}`: glob pattern to apply for the search
+    - `dirs {array[string]}`: directories in which to search 
+    - `patterns {array[string]}`: glob patterns to apply for the search
     - `glob {object} [optional]`: glob system configuration 
     (for the available options, [click here](https://github.com/isaacs/node-glob#options))
     - `description {string} [optional]`: text to log in terminal
-    - `toObject(absolutePath) {function} [optional]`: define the key in returned {key-value} object
-    (the value will be the found absolute path)
+    - `defineName(path) {function} [optional]`: define the name in returned {name-path} object
 - `initial {object|array}`: initial value 
 
-If `initial` is an object (or `undefined`, `null`) the `find` will return an object with:
+If `initial` is an object (or `undefined`, `null`) the `find` will return an extended object with:
 
-- key: filename (or `toObject()` returned value)
-- value: absolute path
+- name: filename (or `defineName()` returned value)
+- path: matching absolute path
 
-If `initial` is an array, the `find` function will return an array.
+If `initial` is an array, the `find` function will return an extended array of matching absolute paths.
 
 
-##### Yves default configuration
+#### Yves default configuration example
 
 ```js
 const sableFindSettings = {
@@ -163,11 +162,11 @@ const sableFindSettings = {
     glob: {},
     description: 'looking for entry points...',
 
-    toObject: p => path.basename(p, '.entry.js')
+    key: p => path.basename(p, '.entry.js')
 }
 ```
 
-#### build()
+### build()
 
 ```
 sable.build(configuration, [callback])
