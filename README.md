@@ -120,12 +120,14 @@ yarn run build
 
 Advanced use:
 
-- log.head()
-- log.task()
-- log.step()
-- log.stepWithTimestamp()
-- log.done()
-- log.error()
+- [log](#log)
+    - log.head()
+    - log.task()
+    - log.step()
+    - log.stepWithTimestamp()
+    - log.done()
+    - log.error()
+    - log.debug()
 
 ### find()
 
@@ -184,4 +186,22 @@ sable.build(configuration, (error, stats) => {
     // add youre code here
 });
 ```
+
+### log
+
+- `log.head()`: print sable module name and version
+- `log.task()`: print a task message
+- `log.step()`: print a step message
+- `log.stepWithTimestamp()`: print a step message with timestamp
+- `log.done()`: print a done message
+- `log.error()`: print an error message
+- `log.debug()`: print debug message
+
+To print debug messages, set `process.env.DEBUG` variable to `true`. 
+This is a script example:
+
+```bash
+DEBUG=true npm run build
+```
+
 
