@@ -1,0 +1,26 @@
+{
+  "name": "sable",
+  "version": "0.1.0",
+  "description": "Frontend helper for Spryker projects",
+  "author": {
+    "name": "Spryker Sytems GmbH",
+    "email": "info@spryker.com",
+    "url": "http://spryker.com"
+  },
+  "repository": {
+    "url": "git@github.com:spryker/sable.git",
+    "type": "git"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "engines": {
+    "node": "^6.0.0"
+  },
+  "dependencies": {
+    "globby": "~6.0.0",
+    "moment": "~2.15.2"
+  },
+  "peerDependencies": {
+    "webpack": ">=2.0.0"
+  }
+}
