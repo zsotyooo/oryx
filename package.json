@@ -1,6 +1,6 @@
 {
-  "name": "sable",
-  "version": "0.2.1",
+  "name": "@spryker/oryx",
+  "version": "0.3.0",
   "description": "Frontend helper for Spryker projects",
   "author": {
     "name": "Spryker Sytems GmbH",
@@ -8,7 +8,7 @@
     "url": "http://spryker.com"
   },
   "repository": {
-    "url": "git@github.com:spryker/sable.git",
+    "url": "git@github.com:spryker/oryx.git",
     "type": "git"
   },
   "license": "MIT",
