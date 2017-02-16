@@ -35,9 +35,9 @@ You need to add oryx to your `package.json`;
 open the terminal, go to your project root folder and type:
 
 ```bash
-npm install oryx --save-dev
+npm install @spryker/oryx --save-dev
 # or 
-yarn add oryx --dev
+yarn add @spryker/oryx --dev
 ```
 
 ## Usage
