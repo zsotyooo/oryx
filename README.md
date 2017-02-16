@@ -59,7 +59,7 @@ You can now decide to ask oryx to look for your own entry points (by changing th
 or add them directly as you always did with webpack (like shown in the example).
 
 ```js
-const oryx = require('oryx');
+const oryx = require('@spryker/oryx');
 
 const entrySettings = {
     roots: [path.resolve('vendor/spryker')],
