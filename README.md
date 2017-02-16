@@ -8,7 +8,7 @@ Frontend helper for Spryker projects
 4. [Usage](#usage)
 5. [API](#api)
 
-> If you're looking for **oryx ZED dedicated soltion**, [click here (oryx-for-zed)](https://github.com/spryker/oryx-for-zed).
+> If you're looking for **oryx ZED dedicated solution**, [click here (oryx-for-zed)](https://github.com/spryker/oryx-for-zed).
 
 ---
 
@@ -22,12 +22,8 @@ oryx relies on `webpack` 2.
 
 ## Requirements
 
-- `nodejs` version 6.x
-- `npm` version 3.x **OR** `yarn` version 0.x
-
-It comes with a peer dependency:
-
-- `webpack` version 2.x (needed when you build assets using oryx api)
+- `nodejs` version 6.x LTS
+- `npm` version >= 3.x *or* `yarn` version >= 0.19.x
 
 ## Setup
 
@@ -39,6 +35,10 @@ npm install @spryker/oryx --save-dev
 # or 
 yarn add @spryker/oryx --dev
 ```
+
+oryx comes with a peer dependency:
+
+- `webpack` version >= 2.x (needed when you build assets using oryx api)
 
 ## Usage
 
