@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.3 (beta)
+Released on 07.03.2017
+
+- change `log.info()` function
+
 ## 0.4.2 (beta)
 Released on 07.03.2017
 

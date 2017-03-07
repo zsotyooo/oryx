@@ -180,10 +180,9 @@ oryx.build(configuration, (error, stats) => {
 
 ### log functions
 
-- `log.info()`: print oryx module name and version
+- `log.info()`: print an info message
 - `log.task()`: print a task message
 - `log.step()`: print a step message
-- `log.stepWithTimestamp()`: print a step message with timestamp
 - `log.done()`: print a done message
 - `log.error()`: print an error message
 - `log.debug()`: print debug message
