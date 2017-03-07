@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1 (beta)
+Released on 07.03.2017
+
+- update log output
+- remove `log.stepWithTimestamp()` function
+
 ## 0.4.0 (beta)
 Released on 07.03.2017
 
