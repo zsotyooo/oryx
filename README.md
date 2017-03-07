@@ -1,4 +1,4 @@
-# oryx
+# oryx (beta)
 
 Frontend helper for Spryker projects
 
