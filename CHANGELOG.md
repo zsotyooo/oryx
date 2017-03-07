@@ -1,27 +1,27 @@
 # Changelog
 
-## 0.4.4 (beta)
+### 0.4.4 (beta)
 Released on 07.03.2017
 
 - minor log update
 
-## 0.4.3 (beta)
+### 0.4.3 (beta)
 Released on 07.03.2017
 
 - change `log.info()` function
 
-## 0.4.2 (beta)
+### 0.4.2 (beta)
 Released on 07.03.2017
 
 - minor log update
 
-## 0.4.1 (beta)
+### 0.4.1 (beta)
 Released on 07.03.2017
 
 - update log output
 - remove `log.stepWithTimestamp()` function
 
-## 0.4.0 (beta)
+### 0.4.0 (beta)
 Released on 07.03.2017
 
 - update dependencies in package.json:
@@ -32,7 +32,7 @@ Released on 07.03.2017
 - update yarn.lock file
 - add CHANGELOG.md
 
-## 0.3.x (alpha)
+### 0.3.x (alpha)
 Released on 16.02.2017
 
 - test alpha release
