@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 (beta)
+Released on 07.03.2017
+
+- minor log update
+
 ## 0.4.1 (beta)
 Released on 07.03.2017
 
