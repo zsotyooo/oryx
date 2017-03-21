@@ -1,5 +1,11 @@
 # Changelog
 
+### 0.4.7 (beta)
+Released on 21.03.2017
+
+- add `colors` as dependency
+- restyle terminal output
+
 ### 0.4.6 (beta)
 Released on 21.03.2017
 

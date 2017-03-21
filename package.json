@@ -1,6 +1,6 @@
 {
   "name": "@spryker/oryx",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Frontend helper for Spryker projects",
   "author": {
     "name": "Spryker Sytems GmbH",
@@ -18,6 +18,7 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
+    "colors": "~1.1.2",
     "globby": "~6.1.0",
     "moment": "~2.17.1"
   },
