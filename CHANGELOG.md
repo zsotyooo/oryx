@@ -1,5 +1,11 @@
 # Changelog
 
+### 0.4.6 (beta)
+Released on 21.03.2017
+
+- fix execution when build error happen
+- update `oryx.build()` returning a promise
+
 ### 0.4.5 (beta)
 Released on 08.03.2017
 
