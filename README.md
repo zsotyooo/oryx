@@ -179,6 +179,26 @@ oryx.build(configuration, (error, stats) => {
 });
 ```
 
+#### build.loadCompiler()
+
+```
+oryx.build.loadCompiler(webpack, webpackVersion)
+```
+
+Load the compiler instance used for build.
+*Useful to load the compiler when oryx is a dependecy in a bundle where it's mandatory to execute the build API using the webpack version specified in that bundle's `package.json`.*
+
+- `webpack {object}`: webpack instance object
+- `webpackVersion {string}`: webpack instance object version number
+
+```js
+const oryx = require('@spryker/oryx');
+const webpack = require('webpack');
+const webpackVersion = require('webpack/package').version;
+
+oryx.build.loadCompiler(webpack, webpackVersion);
+```
+
 ### log functions
 
 - `log.info()`: print an info message

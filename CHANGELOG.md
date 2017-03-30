@@ -1,5 +1,12 @@
 # Changelog
 
+### 0.4.8 (beta)
+Released on 30.03.2017
+
+- add `oryx.build.loadCompiler(webpack, webpackVersion)` 
+to the API to set compiler contextually
+- update readme
+
 ### 0.4.7 (beta)
 Released on 21.03.2017
 
