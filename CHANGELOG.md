@@ -1,5 +1,15 @@
 # Changelog
 
+### 0.4.9 (beta)
+Released on 30.03.2017
+
+- add `callback` arg to `oryx.build()`
+- remove promise returned from build
+- improve error handling
+- update dependencies in package.json:
+    - moment ~2.17.1 => ~2.18.1
+- update readme
+
 ### 0.4.8 (beta)
 Released on 30.03.2017
 

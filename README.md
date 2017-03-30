@@ -167,8 +167,7 @@ oryx.build(configuration, [callback])
 
 Build the assets using `webpack` and print a nice terminal output.
 This functon is just a wrapper around `webpack(configuration, callback)`:
-feel free to use the webpack one if you want more control over the process.
-Return a `promise`: resolve with `webpack` stats, reject with the error object.
+feel free to use directly webpack if you want even more control over the process.
 
 - `configuration {object}`: webpack configuration file
 - `callback(error, stats) {function} [optional]`: function called once webpack build task is completed
