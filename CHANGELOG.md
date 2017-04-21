@@ -1,5 +1,10 @@
 # Changelog
 
+### 1.0.0
+Released on 21.04.2017
+
+- documentation moved to [spryker.github.io/user-interface/oryx](http://spryker.github.io/user-interface/oryx)
+
 ### 0.4.9 (beta)
 Released on 30.03.2017
 
