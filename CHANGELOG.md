@@ -1,5 +1,10 @@
 # Changelog
 
+### 1.1.0
+Released on 30.05.2017
+
+- add support for node ^7.0.0
+
 ### 1.0.0
 Released on 21.04.2017
 
